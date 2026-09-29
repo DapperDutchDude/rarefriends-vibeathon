@@ -1,50 +1,46 @@
-# Rare Friends Vibeathon
+# Suika Merge
 
-**September 20–30, 2026 · $40,000 advertised prize pool**
+Drop fruit into the jar with your Rare Friend, merge matching fruit up the tiers, and cash out your multiplier before the jar overflows.
 
-1 prompt. 1 Rare Friend. Build something interesting for Rare Friends: a minigame, virtual pet, idle game, gacha, launchpad, tool, agent, or something new. AI-assisted builds are welcome. One working core interaction is enough.
+**Builder:** Dapper / [@F17UK](https://x.com/F17UK) · **Category:** Economy Potential · **SDK:** FriendSDK v0.1.2
 
-## Choose your approach
+[Source code](https://github.com/DapperDutchDude/rarefriends-vibeathon/tree/main/submissions/suika-merge) · [Game rules](https://github.com/DapperDutchDude/rarefriends-vibeathon/blob/main/submissions/suika-merge/game/game.json)
 
-### Games using FriendSDK
+## Run it
 
-Use [FriendSDK v0.1.2](https://github.com/spokesz/friendsdk) when its game runtime fits your idea.
+Use Node.js 22+ on Linux or Ubuntu/WSL2, plus a browser wallet holding a hardwired Rare Friends Generations NFT (generation ≥ 1) on Robinhood mainnet.
 
-- **Make your selected Rare Friend part of the experience** and preserve its original character artwork.
-- **Use the SDK's wallet and Friend selection.** Builders and players need a wallet holding a hardwired Generations NFT, generation 1 or higher, on Robinhood mainnet—even for previews.
-- **Keep everything inside the SDK's 960 × 640 viewport.** Your world can be larger: custom cameras, scrolling maps and custom renderers are welcome. Support keyboard and touch, with usable loading, error, mute and reduced-motion controls.
+```sh
+git clone https://github.com/DapperDutchDude/rarefriends-vibeathon.git
+cd rarefriends-vibeathon/submissions/suika-merge
+npm ci
+npm run dev
+```
 
-Choose your own world, artwork and style. Start with the SDK's starter example and make the main interaction work from beginning to end.
+Open the printed URL, connect your wallet and select your Friend. The SDK verifies ownership before play. No RF funding or transaction signature is needed for this simulated preview. No hosted demo is provided yet.
 
-### Projects without FriendSDK
+## Play
 
-**FriendSDK is optional.** If your idea needs a different interface or capabilities the SDK does not provide—such as a launchpad, tool or agent—use the stack that fits. Explain how it connects to Rare Friends or $RAREFRIENDS, and demonstrate one working interaction. The SDK's game container and game controls apply to SDK games. Document any wallet or identity requirements your project needs.
+Move the aim reticle with arrow keys or drag/tap on the jar. Press space, enter, or release your tap to drop the next fruit. Matching fruit merges on contact, climbing the tier chain and raising your multiplier. Cash out anytime to bank your current multiplier, or keep pushing your luck — if the jar overflows, that round's multiplier is lost. Settings include mute and reduced motion. Everything stays inside the SDK's 960 x 640 container.
 
-For either approach, **keep purchases and rewards simulated for your MVP, and label them clearly.** Live contracts and real-money transactions are not required to submit. Describe features that need future support or integration.
+## Rules and rewards
 
-## How to submit
+**All balances, purchases and rewards are simulated.** Start with 20 RF. One drop costs 1 RF. Merges resolve continuously via physics; the table below documents the net result of a single drop once its merges resolve.
 
-Open a pull request in this repository adding `submissions/your-project/README.md` by **September 30, 2026**. Exact cutoff time and timezone: **TBA**.
+| Result | Chance | Redemption value |
+|---|---:|---:|
+| No merge | 45% | 0 RF |
+| Cherry to Grape | 25% | 0.30 RF |
+| Grape to Orange | 15% | 0.70 RF |
+| Orange to Apple | 9% | 1.50 RF |
+| Apple to Melon | 4% | 3.50 RF |
+| Melon to Watermelon | 1.5% | 9.00 RF |
+| Watermelon jackpot | 0.5% | 25.00 RF |
 
-Use the [Fishing example submission](https://github.com/spokesz/rarefriends-vibeathon/pull/1) as a format guide, adapting the game-specific details to your project. Include these details in your submission README and PR description:
+Expected reward: **0.715 RF per drop** (a ~28.5% house edge). Shaking the jar costs 2 RF and nudges fruit toward a merge without changing underlying odds. Continuing after an overflow costs 3 RF. New drop purchases stop when balance is insufficient. Preview progress resets when the runtime session ends.
 
-- **Project name, builder name/contact and category.**
-- **One sentence** explaining the project and how it uses Rare Friends or $RAREFRIENDS.
-- **Source repository** with code, assets and clear setup and run instructions. State whether you use FriendSDK and its version, or name your stack.
-- **Playable preview or demo.** Games must include a public playable preview link; web tools and agents must include a working demo link. For CLI tools or background agents without a web interface, include a reproducible demo command and a short recording or example output. State any wallet and network requirements.
-- **How to use it.** Describe controls and game rules, or the steps to try your tool, agent or other project. If applicable, list RF costs, outcome probabilities, rewards and consumable rules. Credit any third-party assets.
-- **Checks and known issues.** For SDK games, run relevant tests, typecheck, game validation and browser checks. For other projects, report checks appropriate to the stack and main interaction. Report failures, limitations and any known risks involving wallets or funds.
+## Checks, credits and limitations
 
-Submit early and improve your entry during the event. **You may host public playable previews and working demos on GitHub Pages or another static host. No separate Rare Friends approval is needed for submission previews.** For SDK games, follow the [build and hosting steps](https://github.com/spokesz/friendsdk#build-and-share-a-preview), keeping the ownership gate and simulated economy intact. Official production publication through Rare Friends still requires a separate review.
+Run `npm test`, `npm run check:games`, and `npm run build`. `npm run typecheck` is a placeholder in this prototype (no TypeScript sources yet). `npm run check:browser` is not wired up yet - a real-wallet, real-browser playthrough is still outstanding.
 
-Need help choosing an approach or submitting? Join [Vibeathon support on Telegram](https://t.me/RFVibeathon).
-
-## Categories and prizes
-
-| Category | What it recognises | 1st | 2nd | 3rd |
-|---|---|---|---|---|
-| Character Spotlight | Best use of a Generations NFT as the main character | $1,000 + 1 Genesis NFT | $500 + 10 Gen-1 NFTs | $250 + 9 Gen-1 NFTs |
-| Token Activity | Most successful at burning or spending $RAREFRIENDS | $1,000 + 1 Genesis NFT | $500 + 10 Gen-1 NFTs | $250 + 9 Gen-1 NFTs |
-| Economy Potential | Best potential for a token economy paired with $RAREFRIENDS | $1,000 + 1 Genesis NFT | $500 + 10 Gen-1 NFTs | $250 + 9 Gen-1 NFTs |
-
-**Details pending:** seven additional paid spots are advertised alongside the $40,000 total pool. Remaining payouts, NFT valuations and how simulated entries are judged for Token Activity are TBA.
+The dropper character and jar scenery are placeholder art for this MVP and are not the final Rare Friends canonical sprites - swap in official character artwork before any production submission. No trading, wearable NFTs, creator fees, or live economy is included. Production publication needs separate Rare Friends review.
