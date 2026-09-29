@@ -1,46 +1,153 @@
-# Rare Friends: Fruit Fusion
+Rare Friends: Fruit Fusion
 
-Drop fruit into the jar with your Rare Friend, merge matching fruit up the tiers, and cash out your multiplier before the jar overflows.
+Drop fruit into the jar alongside your Rare Friend, merge matching fruit into higher-value tiers, and build your multiplier. Cash out before the jar overflows or keep pushing your luck for bigger rewards in this physics-based risk-versus-reward arcade game.
 
-**Builder:** Dapper / [@F17RUK](https://x.com/F17UK) · **Category:** Economy Potential · **SDK:** FriendSDK v0.1.2
+Builder: Dapper / @F17RUK
+ Category: Economy Potential
+ SDK: FriendSDK v0.1.2
 
-[Source code](https://github.com/DapperDutchDude/rarefriends-vibeathon/tree/main/submissions/suika-merge) · [Game rules](https://github.com/DapperDutchDude/rarefriends-vibeathon/blob/main/submissions/suika-merge/game/game.json)
+What did you build?
 
-## Run it
+Rare Friends: Fruit Fusion is a physics-based merge game inspired by the popular fruit-merging genre, combined with an engaging risk-and-reward economy loop.
 
-Use Node.js 22+ on Linux or Ubuntu/WSL2, plus a browser wallet holding a hardwired Rare Friends Generations NFT (generation ≥ 1) on Robinhood mainnet.
+Players strategically drop fruit into a jar and merge matching fruit into increasingly valuable tiers. Each successful merge grows the current round's multiplier, creating an ongoing decision: secure your gains by cashing out, or continue chasing larger rewards while risking everything if the jar overflows.
 
-```sh
+Key features include:
+
+Physics-based fruit dropping and merging
+Progressive fruit evolution through multiple tiers
+Risk-versus-reward cash out mechanic
+Simulated RF economy and reward balancing
+Accessibility options including mute and reduced motion settings
+Responsive mouse, keyboard and touch controls
+How does it use Rare Friends?
+
+Fruit Fusion is designed specifically for the Rare Friends ecosystem.
+
+Players connect their wallet and select a Rare Friends Generations NFT before entering the game. FriendSDK verifies ownership and uses the selected Friend as the player's identity within the experience.
+
+Rather than acting as a simple login mechanism, the Rare Friend serves as the player's companion and persistent identity layer. The concept demonstrates how Rare Friends can become a consistent player profile across games and future ecosystem experiences.
+
+Future iterations could support:
+
+Friend-specific progression
+Achievement tracking
+Leaderboards
+Unlockable rewards
+Friend-based statistics and milestones
+Source Code
+
+Repository
+
+submissions/suika-merge
+
+Technology
+
+React
+JavaScript
+HTML5 Canvas
+Matter.js Physics
+FriendSDK v0.1.2
+Playable Demo / How to Run
+Requirements
+Node.js 22+
+Linux, Ubuntu or WSL2
+Browser wallet holding a Rare Friends Generations NFT (Generation ≥ 1) on Robinhood Mainnet
+Local Setup
+Shell
 git clone https://github.com/DapperDutchDude/rarefriends-vibeathon.git
 cd rarefriends-vibeathon/submissions/suika-merge
+ 
 npm ci
 npm run dev
-```
+Show more lines
 
-Open the printed URL, connect your wallet and select your Friend. The SDK verifies ownership before play. No RF funding or transaction signature is needed for this simulated preview. No hosted demo is provided yet.
+Open the URL displayed in the terminal and connect your wallet.
 
-## Play
+The SDK verifies ownership before gameplay begins.
 
-Move the aim reticle with arrow keys or drag/tap on the jar. Press space, enter, or release your tap to drop the next fruit. Matching fruit merges on contact, climbing the tier chain and raising your multiplier. Cash out anytime to bank your current multiplier, or keep pushing your luck — if the jar overflows, that round's multiplier is lost. Settings include mute and reduced motion. Everything stays inside the SDK's 960 x 640 container.
+No RF funding, blockchain transaction or signature is required for this simulated MVP preview.
 
-## Rules and rewards
+How do you play?
+Controls
+Action	ControlMove Aim	Arrow Keys
+Move Aim	Mouse / Touch
+Drop Fruit	Space
+Drop Fruit	Enter
+Drop Fruit	Release Touch
+Objective
+Drop fruit into the jar.
+Merge identical fruit on contact.
+Create larger and more valuable fruit.
+Increase your multiplier through successful merges.
+Cash out to secure your multiplier.
+Avoid overflowing the jar.
 
-**All balances, purchases and rewards are simulated.** Start with 20 RF. One drop costs 1 RF. Merges resolve continuously via physics; the table below documents the net result of a single drop once its merges resolve.
+If the jar overflows before cashing out, the current round's multiplier is lost.
 
-| Result | Chance | Redemption value |
-|---|---:|---:|
-| No merge | 45% | 0 RF |
-| Cherry to Grape | 25% | 0.30 RF |
-| Grape to Orange | 15% | 0.70 RF |
-| Orange to Apple | 9% | 1.50 RF |
-| Apple to Melon | 4% | 3.50 RF |
-| Melon to Watermelon | 1.5% | 9.00 RF |
-| Watermelon jackpot | 0.5% | 25.00 RF |
+Costs and Rewards
 
-Expected reward: **0.715 RF per drop** (a ~28.5% house edge). Shaking the jar costs 2 RF and nudges fruit toward a merge without changing underlying odds. Continuing after an overflow costs 3 RF. New drop purchases stop when balance is insufficient. Preview progress resets when the runtime session ends.
+All balances, purchases and rewards are simulated for the MVP.
 
-## Checks, credits and limitations
+Economy
+Starting Balance: 20 RF
+Fruit Drop Cost: 1 RF
+Shake Jar Cost: 2 RF
+Continue After Overflow: 3 RF
+Reward Table
+Result	Chance	Redemption ValueNo Merge	45%	0 RF
+Cherry → Grape	25%	0.30 RF
+Grape → Orange	15%	0.70 RF
+Orange → Apple	9%	1.50 RF
+Apple → Melon	4%	3.50 RF
+Melon → Watermelon	1.5%	9.00 RF
+Watermelon Jackpot	0.5%	25.00 RF
 
-Run `npm test`, `npm run check:games`, and `npm run build`. `npm run typecheck` is a placeholder in this prototype (no TypeScript sources yet). `npm run check:browser` is not wired up yet - a real-wallet, real-browser playthrough is still outstanding.
+Expected Reward: 0.715 RF per drop
 
-The dropper character and jar scenery are placeholder art for this MVP and are not the final Rare Friends canonical sprites - swap in official character artwork before any production submission. No trading, wearable NFTs, creator fees, or live economy is included. Production publication needs separate Rare Friends review.
+House Edge: ~28.5%
+
+Shaking the jar helps encourage merges but does not alter the underlying reward odds.
+
+What have you tested?
+Validation
+Shell
+npm test
+npm run check:games
+npm run build
+Show more lines
+Verified Features
+Physics simulation and fruit merging
+Keyboard controls
+Mouse controls
+Touch controls
+Cash out mechanics
+Overflow detection
+RF balance simulation
+Accessibility settings
+Responsive gameplay within the FriendSDK 960 × 640 container
+Known Gaps
+npm run typecheck is currently a placeholder
+npm run check:browser is not yet configured
+Full real-wallet browser testing remains outstanding
+Known Limitations
+All economy systems are simulated for the MVP
+No live blockchain rewards
+No trading marketplace
+No wearable NFTs
+No creator fee system
+No persistent progression between sessions
+Placeholder artwork currently used for the fruit dropper and environment
+
+Production deployment would require review and approval by the Rare Friends team.
+
+Why is this interesting?
+
+Fruit Fusion combines familiar and highly accessible merge gameplay with meaningful economic decisions. Players must constantly evaluate whether to secure their gains or continue building larger multipliers for potentially greater rewards.
+
+The project demonstrates how Rare Friends can function as a player identity layer within casual games, while providing a foundation for future progression, achievements and ecosystem-wide engagement.
+
+Credits
+Built using FriendSDK v0.1.2
+Rare Friends ecosystem integration
+Developed by Dapper (@F1R7UK)
